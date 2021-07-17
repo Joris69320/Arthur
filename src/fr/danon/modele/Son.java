@@ -8,7 +8,7 @@ public abstract class Son {
     protected String anneeSortie;
     protected String titre;
 
-    public Son(int id, String type, String groupeArtiste, String anneeSortie, String titre){
+    public Son(int id, String type, String groupeArtiste, String titre, String anneeSortie){
         this.id = id;
         this.type = type;
         this.groupeArtiste = groupeArtiste;

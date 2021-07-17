@@ -9,9 +9,9 @@ public class SonDAO {
     private String url, user, password;
 
     public SonDAO(){
-        url = "jdbc:mysql://localhost/isitech";
-        user = "root";
-        password = "";
+        url = "jdbc:mysql://51.178.38.27/isitech";
+        user = "joris";
+        password = "69Feyzin69";
     }
 
     public List<Son> getAllSon(){
@@ -32,7 +32,7 @@ public class SonDAO {
                 String titre = line.getString(4);
                 String anneeSortie = line.getString(5);
                 String titreFilm = line.getString(6);
-                Bo b = new Bo(id, type, groupeArtiste, anneeSortie, titre, titreFilm);
+                Bo b = new Bo(id, type, groupeArtiste,  titre, anneeSortie, titreFilm);
                 sons.add(b);
             }
 
@@ -46,7 +46,7 @@ public class SonDAO {
                 String titre = line.getString(4);
                 String anneeSortie = line.getString(5);
                 String lieuConcert = line.getString(6);
-                Live l = new Live(id, type, groupeArtiste, anneeSortie, titre, lieuConcert);
+                Live l = new Live(id, type, groupeArtiste, titre, anneeSortie, lieuConcert);
                 sons.add(l);
             }
         }
@@ -84,7 +84,7 @@ public class SonDAO {
         try{
             Connection con = DriverManager.getConnection(url,user,password);
             Statement sql = con.createStatement();
-            sql.execute("INSERT INTO son (id,type,groupeArtiste,titre,anneSortie) VALUES ("+id+",'"+type+"','"+groupeArtiste+"','"+titre+"','"+anneeSortie+"')");
+            sql.execute("INSERT INTO son (id,type,groupeArtiste,titre,anneeSortie) VALUES ("+id+",'"+type+"','"+groupeArtiste+"','"+titre+"','"+anneeSortie+"')");
             sql.execute("INSERT INTO bo (id,titreFilm) VALUES ("+id+",'"+titreFilm+"')");
         }
         catch (SQLException e){
